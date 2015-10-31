@@ -117,6 +117,7 @@ void *fsalloc::fsalloc(uint32_t size) {
 	}
 
 	gAllocations[addr] = Info::emptyInfo(size);
+	cacheRegion(addr);
 
 	gStats.allocs++;
 	return addr;

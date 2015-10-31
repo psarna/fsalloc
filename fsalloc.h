@@ -65,7 +65,8 @@ struct Info {
 	bool cached : 1;  /*!< true iff region is cached in RAM */
 
 	static Info emptyInfo(uint32_t s) {
-		return {invalid_handle, s, false, false};
+		// emptyInfo is cached, because each new allocations goes to cache first
+		return {invalid_handle, s, false, true};
 	}
 
 	bool valid() {
